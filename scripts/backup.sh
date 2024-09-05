@@ -1,0 +1,1 @@
+docker exec -t lexical_test pg_dumpall -c -U admin > ./backups/dump_$(date +%Y-%m-%d_%H_%M_%S).sql

@@ -1,0 +1,298 @@
+@import 'payload/scss';
+@import './PlaygroundEditorTheme.scss';
+@import './lexical.scss';
+
+
+@mixin filterSvgIconWhite {
+  filter: invert(99%) sepia(99%) saturate(3%) hue-rotate(134deg) brightness(104%) contrast(100%);
+}
+
+@mixin filterSvgIconBlack {
+  filter: invert(0%) sepia(100%) saturate(0%) hue-rotate(31deg) brightness(95%) contrast(103%);
+}
+
+.rich-text-lexical {
+  display: flex;
+
+  .errorBoundary {
+    pre {
+      text-wrap: unset;
+    }
+  }
+
+  &__wrap {
+    width: 100%;
+    position: relative;
+  }
+
+  
+  &--read-only {
+    .editor-shell {
+      .editor {
+        background: var(--theme-elevation-200);
+        color: var(--theme-elevation-450);
+        padding: base(0.5);
+      }
+    }
+  }
+}
+
+html[data-theme='light'] {
+  .rich-text-lexical {
+    &.error {
+      .editor-shell {
+        @include lightInputError;
+      }
+    }
+  }
+
+  .editor-shell {
+    color: #000;
+  }
+}
+
+html[data-theme='dark'] {
+  .rich-text-lexical {
+    &.error {
+      .editor-shell {
+        @include darkInputError;
+      }
+    }
+  }
+
+  .editor-shell {
+    color: #FFF;
+  }
+
+  //toolbar
+  .toolbar {
+    background-color: $color-dark-gray;
+    i {
+      @include filterSvgIconWhite();
+      opacity: 1;
+    }
+
+    .toolbar-item {
+      .text {
+        color: #FFF;
+        &:hover {
+          color: #000;
+        }
+      }
+      &:hover:not([disabled]) {
+        background-color: $color-light-gray;
+        .icon {
+          @include filterSvgIconBlack();
+        }
+        i {
+          @include filterSvgIconBlack();
+        }
+      }
+    }
+    
+    .toolbar-item.active {
+      i {
+        @include filterSvgIconBlack();
+      }
+    }
+
+    .icon {
+      @include filterSvgIconWhite();
+      opacity: 1;
+    }
+
+    .font-size-input {
+      color: #FFF;
+    }
+
+  }
+  
+  button.toolbar-item {
+    &.active {
+      background-color: $color-light-gray;
+    }
+    &:hover  {
+      .text {
+        color: #000;
+      }
+    }
+  }
+
+  //dropdowns
+  .dropdown {
+    background-color: $color-dark-gray;
+    i {
+      filter: invert(99%) sepia(99%) saturate(3%) hue-rotate(134deg) brightness(104%) contrast(100%);
+    }
+    .item {
+      &:hover {
+        .icon {
+          @include filterSvgIconBlack();
+        }
+      }
+    }
+  }
+
+  button.item {
+    background-color: $color-dark-gray;
+    color: #FFF;
+    &:hover {
+      color: #000;
+    }
+  }
+
+  .typeahead-popover {
+    background-color: $color-dark-gray;
+    li {
+      background-color: $color-dark-gray;
+      color: #FFF;
+      &:hover {
+        background-color: $color-light-gray;
+        color: #000;
+      }
+    }
+  }
+
+  //modal
+  .Modal__modal {
+    background-color: $color-dark-gray;
+    .Modal__title {
+      color: #FFF;
+    }
+
+    .Modal__closeButton {
+      background-color: $color-dark-gray;
+      &:hover {
+        background-color: $color-light-gray;
+        color: #000;
+      }
+    }
+
+    .Modal__content {
+      .Input__label {
+        color: #FFF;
+      }
+      .dropdown-button-text {
+        color: #000;
+      }
+      .Button__root {
+        background-color: $color-light-gray;
+        color: #000;
+      }
+    }
+
+    .DialogActions {
+      .Button__root {
+        background-color: $color-light-gray;
+        color: #000;
+      }
+    }
+  }
+
+  //collapsible container
+  details.Collapsible__container {
+    background-color: $color-dark-gray;
+    .Collapsible__title::before {
+      border-top-color: #FFF;
+    }
+  }
+
+  //color picker
+  .color-picker-wrapper {
+    .Input__label {
+      color: #FFF;
+    }
+  }
+
+  //add block menu
+  button.add-block-menu .icon {
+    @include filterSvgIconWhite();
+    opacity: 1;
+  }
+
+  //draggable block menu
+  div.draggable-block-menu .icon {
+    @include filterSvgIconWhite();
+    opacity: 1;
+  }
+
+  //slash menu 
+  #slash-menu {
+    .slash-menu-popup {
+      background-color: $color-dark-gray;
+      .slash-menu-popup__group-title {
+        color: #FFF;
+      }
+      .slash-menu-popup__item {
+        color: #FFF;
+      }
+      .slash-menu-popup__item--selected {
+        color: #000;
+        .icon {
+          color: #000;
+        }
+      }
+      .icon {
+        color: #FFF;
+      }
+    }
+  }
+
+  //floating toolbar 
+  .floating-select-toolbar-popup {
+    background-color: $color-dark-gray;
+    .floating-select-toolbar-popup__button {
+      color: #fff;
+      &:hover {
+        .icon {
+          color: #000;
+        }
+      }
+    }
+    .floating-select-toolbar-popup__dropdown {
+      color: #fff;
+      &:hover {
+        .icon {
+          color: #000;
+        }
+      }
+    } 
+    .icon {
+      color: #fff;
+    }
+    i.floating-select-toolbar-popup__dropdown-caret::after {
+      opacity: 1;
+      @include filterSvgIconWhite();
+    }
+    .active {
+      .icon {
+        color: #000;
+      }
+      i.floating-select-toolbar-popup__dropdown-caret::after {
+        opacity: 1;
+      }
+    }
+  }
+  
+  .floating-select-toolbar-popup__dropdown-items {
+    background-color: $color-dark-gray;
+    .floating-select-toolbar-popup__dropdown-item {
+      color: #FFF;
+      &:hover {
+        color: #000;
+        svg {
+          color: #000;
+        }
+      }
+      svg {
+        color: #FFF;
+      }
+    }
+  }
+}
+
+//otherwise fields below rich text will cover slash menu
+//when it is opened at the bottom of richtext container
+.field-type.text {
+  position: static;
+}

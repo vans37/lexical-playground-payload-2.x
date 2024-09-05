@@ -1,0 +1,8 @@
+build
+dist
+.next
+#.env
+#.env.local
+.vercel
+node_modules
+

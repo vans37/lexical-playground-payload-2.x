@@ -1,0 +1,1 @@
+docker exec -it lexical_test psql -U admin -d postgres -c "DROP DATABASE payload;" -c "CREATE DATABASE payload;"

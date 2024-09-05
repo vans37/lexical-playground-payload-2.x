@@ -1,0 +1,9 @@
+**/payload-types.ts
+**/.next
+**/.build
+**/.dist
+**/.git
+**/.svn
+**/.hg
+**/node_modules
+**/src/payload/lexical

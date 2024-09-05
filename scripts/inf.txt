@@ -1,0 +1,4 @@
+*After running server_setup.sh script execute:
+    source ~/.nvm/nvm.sh
+
+* vps/vds requires at least 2 GB of ram to build project, if possible enable swap and add 2GB or more.
