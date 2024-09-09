@@ -12,7 +12,7 @@ import Orders from './payload/collections/Orders'
 import { Pages } from './payload/collections/Pages'
 import { Products } from './payload/collections/Products'
 import { Users } from './payload/collections/Users'
-import { seed } from './payload/endpoints/seed'
+//import { seed } from './payload/endpoints/seed'
 import LandingPage from './payload/globals/LandingPage'
 import NavMenu from './payload/globals/NavMenu'
 import { fieldsSelect } from './payload/payload-enchants-master/packages/fields-select/src'
@@ -63,13 +63,13 @@ export default buildConfig({
     },
   }),
   editor: lexicalEditor(),
-  endpoints: [
-    {
-      handler: seed,
-      method: 'get',
-      path: '/seed',
-    }
-  ],
+  // endpoints: [
+  //   {
+  //     handler: seed,
+  //     method: 'get',
+  //     path: '/seed',
+  //   }
+  // ],
   /*
     *If json size value is default or too small,
     *Saving documents with lexical field
