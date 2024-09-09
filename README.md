@@ -10,7 +10,7 @@ I hope that the outstanding and helpful community of Payload CMS will help fix b
 
 Currently, the ported features are deeply integrated into a dummy website built using the Payload 2.X custom server example. [Link to custom server example](https://github.com/payloadcms/payload/tree/main/examples/custom-server). I believe it is possible to "untie" the ported editor from the small project I've built, but it will require time and effort. For now, the priority is bug fixing, with future plans to port it to Payload 3.0.
 
-The Lexical editor in Payload version 2.X is fixed to version **0.13.1**, which, of course, includes bugs that have been fixed in later versions. Changing the Lexical version (or even some of its dependencies) will cause the editor to fail, so try to avoid it. The code written here modifies some of the Playground feature nodes directly, which will be a problem when trying to update Lexical dependencies. The only way to mitigate this for now is to build a custom editor from Payload 2.X source code using [AlessioGr's](https://github.com/payloadcms/payload/commits?author=AlessioGr) custom-written code to integrate Lexical into Payload without needing to rebuild your project every time you make changes to the editor. Of course, there's another option: using custom fields (Alessio's Lexical uses it too, but it was customized so that you can integrate Lexical features as a Payload config, which is a great productivity boost) that will help you integrate the latest Lexical editor (and almost any React editor out there) into your project. You can read more about this in the Payload docs [link](Link "custom fields").
+The Lexical editor in Payload version 2.X is fixed to version **0.13.1**, which, of course, includes bugs that have been fixed in later versions. Changing the Lexical version (or even some of its dependencies) will cause the editor to fail, so try to avoid it. The code written here modifies some of the Playground feature nodes directly, which will be a problem when trying to update Lexical dependencies. The only way to mitigate this for now is to build a custom editor from Payload 2.X source code using [AlessioGr's](https://github.com/payloadcms/payload/commits?author=AlessioGr) custom-written code to integrate Lexical into Payload without needing to rebuild your project every time you make changes to the editor. Of course, there's another option: using custom fields (Alessio's Lexical uses it too, but it was customized so that you can integrate Lexical features as a Payload config, which is a great productivity boost) that will help you integrate the latest Lexical editor (and almost any React editor out there) into your project. You can read more about this in the Payload docs [link](https://payloadcms.com/docs/admin/components#fields).
 
 Huge thanks to **AlessioGr** and the Payload CMS team for their work! I hope that when 3.X is marked stable, they will have more time to continue this great work of improving the editing experience in Payload CMS and porting new features. In time, there may not even be a need for this project to exist. As of now, Payload 3.0 already supports toolbars and includes a ported version (latest one) of table features. Great job!
 
@@ -70,18 +70,10 @@ There are two ways to set up the project database:
 
 Navigate to `/src/payload.config.ts` and open the Payload configuration. Then uncomment these lines (they are commented out because the build fails due to TypeScript type mismatches, which need fixing):
 
-js
-
-Copy code
-
 `import { seed } from './payload/endpoints/seed'`
 
 
 and
-
-js
-
-Copy code
 
 `endpoints`: \[
 &#x20; {
