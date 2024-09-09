@@ -9,6 +9,7 @@ import { QOLFeatures } from '../lexical/features/QualityOfLife'
 import { uploadImagesHook } from '../lexical/features/UploadImages/fieldHook'
 import theme from '../lexical/lib/PlaygroundEditorTheme'
 import revalidateCollection from './hooks/revalidate'
+import ResetLexicalState from '../customFields/resetLexicalState'
 
 export const Pages: CollectionConfig = {
   slug: 'pages',
@@ -67,6 +68,11 @@ export const Pages: CollectionConfig = {
         beforeChange: [async args => uploadImagesHook(args)],
       },
     },
+    ResetLexicalState(
+      'reset_lexical_state',
+      'content',
+      'Reset lexical state',
+    ),
     {
       name: 'slug',
       type: 'text',

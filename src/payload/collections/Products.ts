@@ -9,6 +9,7 @@ import { QOLFeatures } from '../lexical/features/QualityOfLife'
 import { uploadImagesHook } from '../lexical/features/UploadImages/fieldHook'
 import theme from '../lexical/lib/PlaygroundEditorTheme'
 import revalidateCollection from './hooks/revalidate'
+import ResetLexicalState from '../customFields/resetLexicalState'
 
 export const Products: CollectionConfig = {
   slug: 'products',
@@ -105,6 +106,11 @@ export const Products: CollectionConfig = {
       },
     },
     lexicalHTML('description', { name: 'description_html' }),
+    ResetLexicalState(
+      'reset_lexical_state',
+      'description',
+      'Reset lexical state',
+    ),
     {
       name: 'slug',
       type: 'text',
